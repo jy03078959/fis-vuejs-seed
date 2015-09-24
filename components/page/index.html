@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FIS-VueJS 简书Demo</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/static/css/normalize.css">
+    </head>
+    <body>
+        <div id="app" class="row-fluid">
+            <c-header></c-header>
+            <div v-component="{{  currentView }}" v-transition="fade"
+                 transition-mode="out-in"  params="{{pageParams}}">
+            </div>
+            <c-footer></c-footer>
+        </div>
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/mod.js"></script>
+        <script src="/static/js/underscore.js"></script>
+        <script type="text/javascript">
+            require(['components/page/app.js']);
+        </script>
+    </body>
+</html>
