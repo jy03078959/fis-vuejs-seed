@@ -47,14 +47,18 @@ fis.match('::packager', {
         useInlineMap: true, // 资源映射表内嵌
         include:"components/**.js"
     }),
-    packager: fis.plugin('map'),
+    packager: fis.plugin('map',{
+        '/static/pkg/all.css': [
+            '/static/css/normalize.css',
+            '/static/css/font-awesome.min.css',
+            '/components/**.css'
+        ]
+    }),
     spriter: fis.plugin('csssprites', {
         layout: 'matrix',
         margin: '15'
     })
     
-}).match('**/*.{css,scss}', {
-    packTo: '/static/pkg/all.css' //css打成一个包
 })
 
 //生产环境下CSS、JS压缩合并
