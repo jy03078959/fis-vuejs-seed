@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>vue fis3</title>
-        <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
-        <meta name="viewport" content="width=320, initial-scale=1,user-scalable=no"/>
-        <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="full-screen" content="yes"/>
-        <meta name="x5-fullscreen" content="true"/>
-        <link rel="stylesheet" type="text/css" href="/static/css/normalize.css">
-    </head>
-    <body>
-        <div id="app" class="row-fluid">
-            <c-header></c-header>
-            <div v-component="{{  currentView }}" v-transition="fade"
-                 transition-mode="out-in"  params="{{pageParams}}">
-            </div>
-            <c-footer></c-footer>
+<head>
+    <meta charset="utf-8">
+    <title>vue fis3</title>
+    <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
+    <meta name="viewport" content="width=320, initial-scale=1,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css">
+</head>
+<body>
+<div id="app" class="row-fluid">
+    <div id="page">
+
+        <c-header></c-header>
+        <div v-component="{{  currentView }}" v-transition="fade"
+             transition-mode="out-in" params="{{pageParams}}">
         </div>
-        <script src="/static/js/jquery.min.js"></script>
-        <script src="/static/js/mod.js"></script>
-        <script src="/static/js/underscore.js"></script>
-        <script type="text/javascript">
-            require(['/components/page/app.js']);
-        </script>
-    </body>
+        <c-footer></c-footer>
+    </div>
+    <div id="dialog"></div>
+
+    <c-loading></c-loading>
+</div>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/mod.js"></script>
+<script src="/static/js/underscore.js"></script>
+<script type="text/javascript">
+    require(['/components/page/app.js']);
+</script>
+</body>
 </html>

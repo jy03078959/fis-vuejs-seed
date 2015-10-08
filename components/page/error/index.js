@@ -3,7 +3,7 @@ var BasePage = require('components/common/BasePage.js');
 module.exports = Vue.extend({
     mixins: [BasePage],//继承基本页面属性
     pageName: "error",
-    template: __inline('error.html'),
+    template: __inline('index.html'),
     data: function(){
         return {
             article:'111'
@@ -11,7 +11,7 @@ module.exports = Vue.extend({
     },
     watch : {
         params : function(){
-            console.log("type change ");
+            Util.log("type change ");
         }
     },
     /*特殊值监听方法*/

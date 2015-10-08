@@ -10,7 +10,12 @@ var Util = {
             str = str.replace('{' + (i) + '}', arguments[i]);
         }
         return str;
+    },
+    log:function (){
+        var argsArray = Array.prototype.slice.call(arguments);
+        console.log.apply(console,argsArray);
     }
+
 };
 
 module.exports = Util;

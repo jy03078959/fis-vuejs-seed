@@ -50,6 +50,7 @@ fis.match('::packager', {
     packager: fis.plugin('map',{
         '/static/pkg/all.css': [
             '/static/css/normalize.css',
+            '/static/css/common.css',
             '/static/css/font-awesome.min.css',
             '/components/**.css'
         ]

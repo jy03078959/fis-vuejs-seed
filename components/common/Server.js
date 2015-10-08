@@ -9,6 +9,9 @@ function Server(){
     return {
         ajax:function(data){
             //每个接口访问的通用参数
+            if(data.needLoading){
+                EMA.fire("loading.show");
+            }
             var options = {
                 type: "POST",
                 cache: true,
@@ -18,16 +21,17 @@ function Server(){
                 dataType: "json",
                 accepts: "json",
                 contentType: 'application/json'
-            }
+            };
             $.extend(options,data);
             options.url=CONFIG.host+data.url;
             options.success = function(data){
+                EMA.fire("loading.hide")
                 data.success(data);
-            }
+            };
 
             options.error = function(data){
                 data.error(data);
-            }
+            };
 
             $.ajax(options);
         }

@@ -7,31 +7,47 @@ module.exports = {
     /*父类向下传递的参数数据*/
     props: ['params'],
     replace:true,
+    vue:null,
     data: function(){
         return {}
     },
+    bindEvent:function (key,fn){
+        this.ema.bind(this.pageName+"."+key,fn);
+    },
     created:function(){
-        console.log("页面page----",this.$options.pageName,"created");
+        Util.log("页面page----",this.$options.pageName,"created");
+        this.$options.vue = this;
+        this.$options.ema = EMA.getProxy();
+        this.ema = this.$options.ema;
+        this.$options.initEvent();
     },
     beforeCompile:function(){
-        console.log("页面page----",this.$options.pageName,"beforeCompile");
+        Util.log("页面page----",this.$options.pageName,"beforeCompile");
     },
     compile:function(){
-        console.log("页面page----",this.$options.pageName,"compile");
+        Util.log("页面page----",this.$options.pageName,"compile");
     },
     ready:function(){
-        console.log("页面page----",this.$options.pageName,"ready");
+        Util.log("页面page----",this.$options.pageName,"ready");
     },
     attached:function(){
-        console.log("页面page----",this.$options.pageName,"attached");
+        Util.log("页面page----",this.$options.pageName,"attached");
     },
     detached:function(){
-        console.log("页面page----",this.$options.pageName,"detached");
+        Util.log("页面page----",this.$options.pageName,"detached");
     },
     beforDestroy:function(){
-        console.log("页面page----",this.$options.pageName,"beforDestroy");
+        Util.log("页面page----",this.$options.pageName,"beforDestroy");
     },
     destroyed:function(){
-        console.log("页面page----",this.$options.pageName,"destroyed");
+        Util.log("页面page----",this.$options.pageName,"destroyed");
+        if(this.$options.ema){
+            this.$options.ema.dispose();
+        }
+    },
+    initEvent:function (){
+        
     }
+
+
 };

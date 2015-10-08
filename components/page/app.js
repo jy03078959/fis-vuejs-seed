@@ -5,13 +5,15 @@
 
 var Vue = require('component_modules/vue.js');
 var Router = require('component_modules/director.js').Router;
-var home = require('components/page/home/home.js');
+var home = require('components/page/home/index.js');
 var Util = require('components/common/Util.js');
-require('footer/footer.js');
-require('header/header.js');
-require('components/page/error/error.js');
-
-
+var EMA = require('component_modules/eventManager.js');
+require('footer/index.js');
+require('header/index.js');
+require('loading/index.js');
+require('components/page/error/index.js');
+window.Util = Util;
+window.EMA = new EMA();
 window.app = new Vue({
     el: '#app',
     data: {
@@ -23,7 +25,7 @@ window.app = new Vue({
         'home': home
     },
     getPageUrl: function (name) {
-        var url = 'components/page/{name}/{name}.js';
+        var url = 'components/page/{name}/index.js';
         url = url.replace(/\{name}/g,name);
         return url;
     },
@@ -43,7 +45,7 @@ window.app = new Vue({
             app.preView = app.currentView;
 
             app.currentView = name;
-            console.info(app.preView+"-->页面跳转到-->"+app.currentView,"参数:",data);
+            Util.log(app.preView+"-->页面跳转到-->"+app.currentView,"参数:",data);
         },function(){
             router.setRoute('/error');
         });

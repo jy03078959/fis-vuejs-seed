@@ -5,29 +5,46 @@
 
 module.exports = {
     replace:true,
+    vue:null,
+    bindEvent:function (key,fn){
+        this.ema.bind(this.className+"."+key,fn);
+    },
     created:function(){
-        console.log("公共组件-----",this.$options.className,"created");
+        Util.log("公共组件-----",this.$options.className,"created");
+        this.$options.vue = this;
+        this.$options.ema = EMA.getProxy();
+        this.ema = this.$options.ema;
+        this.$options.initEvent();
     },
     beforeCompile:function(){
-        console.log("公共组件-----",this.$options.className,"beforeCompile");
+        Util.log("公共组件-----",this.$options.className,"beforeCompile");
     },
     compile:function(){
-        console.log("公共组件-----",this.$options.className,"compile");
+        Util.log("公共组件-----",this.$options.className,"compile");
     },
     ready:function(){
-        console.log("公共组件-----",this.$options.className,"ready");
+        Util.log("公共组件-----",this.$options.className,"ready");
     },
     attached:function(){
-        console.log("公共组件-----",this.$options.className,"attached");
+        Util.log("公共组件-----",this.$options.className,"attached");
     },
     detached:function(){
-        console.log("公共组件-----",this.$options.className,"detached");
+        Util.log("公共组件-----",this.$options.className,"detached");
     },
     beforDestroy:function(){
-        console.log("公共组件-----",this.$options.className,"beforDestroy");
+        Util.log("公共组件-----",this.$options.className,"beforDestroy");
     },
     destroyed:function(){
-        console.log("公共组件-----",this.$options.className,"destroyed");
+        Util.log("公共组件-----",this.$options.className,"destroyed");
+        if(this.$options.ema){
+            this.$options.ema.dispose();
+        }
+    },
+    /**
+     * 绑定基础事件
+     */
+    initEvent:function (){
+
     }
 
 };

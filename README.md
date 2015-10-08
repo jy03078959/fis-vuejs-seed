@@ -4,10 +4,7 @@
 
 > demo应该是小而美的
 
-本项目为使用FIS3(以下简称FIS)与VueJS开发单页面应用示例。由于目前VueJS相关的demo项目比较少而且简单，因此我们希望通过一个更加偏向实际的项目来体现FIS3与VueJS的结合。
-
-我们选择了[简书](http://www.jianshu.com/)这款颇具情怀的产品来实现其列表页和文章页部分内容(仅供学习FIS3与VueJS使用，设计与素材内容版权归简书所有)。
-
+本项目为使用FIS3(以下简称FIS)与VueJS开发单页面应用示例
 ### DEMO使用
 
 #### 快速开始
@@ -17,7 +14,7 @@
 npm install -g fis3
 
 #下载项目
-git clone https://github.com/zhangtao07/fis-vuejs-seed.git
+git clone https://github.com/jy03078959/fis-vuejs-seed.git
 
 #安装模块化插件,fis3支持本地插件
 npm install [-g] fis3-hook-module
@@ -25,16 +22,13 @@ npm install [-g] fis3-postpackager-loader
 
 #编译预览
 cd fis-vuejs-seed
-fis3 release
-fis3 server start --type node
+fis3 release -w
+fis3 server start 
 
 ```
 
 #### demo截图
 
-![列表页](./doc/pic1.png)
-
-![文章页](./doc/pic2.png)
 
 
 ### FIS3结合
